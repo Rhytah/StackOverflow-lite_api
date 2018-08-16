@@ -2,9 +2,10 @@
 class Question():
     def __init__(self, question_id,subject, asked_by,question_date):
         self.question_id = question_id
+        self.subject = subject
         self.asked_by =asked_by
         self.question_date = question_date
-        self.subject = subject
+        
 
         def get_question_id(self):
             return self.question_id
@@ -31,7 +32,7 @@ class Answer():
         
     def get_description(self):
         return self.description
-        
+
     def get_answer_date(self):
         return self.answer_date
 
