@@ -21,13 +21,17 @@ class Question():
 questions = []
 
 class Answer():
-    def __init__(self,answer_id, answer_date):
+    def __init__(self,answer_id, description, answer_date):
         self.answer_id = answer_id
+        self.description =description
         self.answer_date = answer_date
 
     def get_answer_id(self):
         return self.answer_id
-
+        
+    def get_description(self):
+        return self.description
+        
     def get_answer_date(self):
         return self.answer_date
 
