@@ -14,6 +14,23 @@ def get_all_questions():
             'message':'There are no questions found on the forum'
         })
     
+@app.route('/api/v1/questions/<question_id>', methods =['GET'])
+def get_a_question(question_id):
+    for specific_question in questions:
+        if specific_question.get(id) == question_id:
+            return jsonify({'message': specific_question})
+
+    return jsonify({
+        'status': 'Fail',
+        'message':'Question doesnot exist'
+    })
+
+@app.route('/api/v1/questions', methods=['POST'])
+def add_a_question():
+    pass
+
+
+
 
 
 

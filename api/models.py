@@ -1,7 +1,7 @@
 
 class Question():
     def __init__(self, question_id,subject, asked_by,question_date):
-        self.question_id=question_id
+        self.question_id = question_id
         self.asked_by =asked_by
         self.question_date = question_date
         self.subject = subject
