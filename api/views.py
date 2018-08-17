@@ -28,6 +28,20 @@ def get_a_question(question_id):
     })
 
 
+@app.route('/api/v1/q_a/<question_id>', methods=['GET'])
+def get_qa(question_id):
+    for specific_question in questions:
+        if specific_question.get('question_id') == int(question_id):
+            for a in answers:
+                if a.get('question_id') == int(question_id):
+                    return jsonify({'message': specific_question, 'answer': a})
+
+                return jsonify({
+                    'status': 'Fail',
+                    'message': 'Question has not yet been asnswered'
+                })
+
+
 @app.route('/api/v1/questions', methods=['POST'])
 def add_a_question():
     request_data = request.get_json()
