@@ -1,6 +1,8 @@
-from flask import Flask, json, jsonify, request,Response
+from datetime import date
 
-from .models import Answer, Question, answers, questions
+from flask import Flask, Response, json, jsonify, request, Request
+
+from .models import Answer, Question, answers, qna, questions
 
 app = Flask(__name__)
 
@@ -16,8 +18,10 @@ def get_all_questions():
     
 @app.route('/api/v1/questions/<question_id>', methods =['GET'])
 def get_a_question(question_id):
+    request_data = request.get_json(force=True)
     for specific_question in questions:
-        if specific_question.get(id) == question_id:
+        if specific_question.get('question_id') == int(question_id):
+        
             return jsonify({'message': specific_question})
 
     return jsonify({
@@ -47,21 +51,24 @@ def add_a_question():
 
     
 
-    new_question = Question(question_id,subject,asked_by,question_date)
+    new_question = [question_id,subject,asked_by,question_date]
     questions.append(new_question)
 
     return jsonify({'message': f'Awesome{asked_by}! You have posted a question, answers will be coming your way'})
 
-@app.route('/api/v1/questions/<questionId>/answers', methods =['POST'])
+@app.route('/api/v1/questions/<question_id>/answers', methods =['POST'])
 def add_an_answer(question_id):
     request_data= request.get_json()
     valid_qna=request.get('valid_qna')
+    answer_id = len(answers)+ 1
 
     if (valid_qna(request_data)):
         qna ={
-            'question_id':request_data['question_id'],
-            'tittle':request_data['title'],
-            'description':request_data['description']
+            'answer_id': answer_id,
+            'question_id':request_data.get('question_id'),
+            'answered_by':request_data.get('answered_by'),
+            'description':request_data.get('description'),
+            'answer_date':request_data.get('answer_date')
 
         }
         answers.append(qna)
