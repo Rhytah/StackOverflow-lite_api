@@ -1,3 +1,7 @@
+questions = []
+answers = []
+
+qna={}
 
 class Question():
     def __init__(self, question_id,subject, asked_by,question_date):
@@ -19,7 +23,7 @@ class Question():
         def get_subject(self):
             return self.subject
 
-questions = []
+
 
 class Answer():
     def __init__(self,answer_id, description, answer_date):
@@ -36,7 +40,7 @@ class Answer():
     def get_answer_date(self):
         return self.answer_date
 
-answers = []
+
 
 
 
