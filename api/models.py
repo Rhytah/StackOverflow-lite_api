@@ -1,8 +1,11 @@
 from datetime import date
+
 # These is a list
-questions = [{'question_id': 1, 'subject': 'this is a subject', 'asked_by': 'Nicholas', 'question_date': date(2018, 03, 13)},
-             {'question_id': 2, 'subject': 'is this code', 'asked_by': 'Nicholas', 'question_date': date(2018, 03, 17)}]
-answers = [{'answer_id': 1, 'question_id': 1, 'subject': 'No it\'s not', 'answered_by': 'Nicholas', 'answer_date': date(2018, 03, 20)}]
+questions = [
+    {'question_id': 1, 'subject': 'this is a subject', 'asked_by': 'Nicholas', 'question_date': date(2018, 03, 13)},
+    {'question_id': 2, 'subject': 'is this code', 'asked_by': 'Nicholas', 'question_date': date(2018, 03, 17)}]
+answers = [{'answer_id': 1, 'question_id': 1, 'subject': 'No it\'s not', 'answered_by': 'Nicholas',
+            'answer_date': date(2018, 03, 20)}]
 
 # These is a dict
 q = {}
@@ -52,3 +55,10 @@ class Answer:
     def get_answer_date(self):
         return self.answer_date
 
+#
+# class QuestionAnswer:
+#     def __init__(self):
+#         self.qna = dict()
+#
+#     def add_qna(self, question_id, title, description, ans=[]):
+#         return self.qna
