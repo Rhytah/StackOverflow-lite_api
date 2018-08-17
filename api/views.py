@@ -19,7 +19,7 @@ def get_all_questions():
 @app.route('/api/v1/questions/<question_id>', methods=['GET'])
 def get_a_question(question_id):
     for specific_question in questions:
-        if specific_question.get(id) == question_id:
+        if specific_question.get('question_id') == int(question_id):
             return jsonify({'message': specific_question})
 
     return jsonify({
