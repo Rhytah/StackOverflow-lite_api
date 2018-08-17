@@ -28,7 +28,7 @@ def get_a_question(question_id):
 @app.route('/api/v1/questions', methods=['POST'])
 def add_a_question():
     request_data = request.get_json()
-    question_id = len (answers) +1
+    question_id = len (questions) +1
     subject = request_data.get('subject')
     asked_by = request_data.get('asked_by')
     question_date = request_data.get('question_date')
