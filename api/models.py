@@ -1,5 +1,5 @@
 
-class Question():
+class Question:
     def __init__(self, question_id,subject, asked_by,question_date):
         self.question_id = question_id
         self.subject = subject
@@ -19,13 +19,16 @@ class Question():
         def get_subject(self):
             return self.subject
 
+       
+
 questions = []
 
-class Answer():
-    def __init__(self,answer_id, description, answer_date):
+class Answer:
+    def __init__(self,answer_id, description, answer_date, qna):
         self.answer_id = answer_id
         self.description =description
         self.answer_date = answer_date
+        
 
     def get_answer_id(self):
         return self.answer_id
@@ -38,5 +41,9 @@ class Answer():
 
 answers = []
 
+class QuestionAnswer:
+    def __init__(self):
+        self.qna = dict()
 
-
+    def add_qna(self,question_id,title,description,ans=[]):
+        return self.qna
