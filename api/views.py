@@ -34,7 +34,7 @@ def add_a_question():
 
     request_data = request.get_json(force=True)
 
-    question_id = len (answers) +1
+    question_id = len (questions) +1
     subject = request_data.get('subject')
     asked_by = request_data.get('asked_by')
     question_date = request_data.get('question_date')
@@ -54,26 +54,33 @@ def add_a_question():
     new_question = [question_id,subject,asked_by,question_date]
     questions.append(new_question)
 
-    return jsonify({'message': f'Awesome{asked_by}! You have posted a question, answers will be coming your way'})
+    return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
 
 @app.route('/api/v1/questions/<question_id>/answers', methods =['POST'])
 def add_an_answer(question_id):
-    request_data= request.get_json()
-    valid_qna=request.get('valid_qna')
+    
+    solution_data = request.get_json()
     answer_id = len(answers)+ 1
 
-    if (valid_qna(request_data)):
+    def valid_qna(questions):
+        if "question_id" in questions :
+            return True
+        else:
+            return False
+
+
+    if (valid_qna(solution_data)):
         qna ={
             'answer_id': answer_id,
-            'question_id':request_data.get('question_id'),
-            'answered_by':request_data.get('answered_by'),
-            'description':request_data.get('description'),
-            'answer_date':request_data.get('answer_date')
+            'question_id':solution_data.get('question_id'),
+            'answered_by':solution_data.get('answered_by'),
+            'description':solution_data.get('description'),
+            'answer_date':solution_data.get('answer_date')
 
         }
         answers.append(qna)
         response =Response("",201, mimetype="application/json")
-        response.headers['Location']="answers/" + str(request_data['question_id'])
+        response.headers['Location']="answers/" + str(solution_data['question_id'])
         return response
     else:
         bad_object = {
@@ -83,7 +90,8 @@ def add_an_answer(question_id):
                 }
         response = Response(json.dumps(bad_object), status=400, mimetype="application'json")
         return response
-
+    
+    
 
 
 if __name__ == '__main__':
