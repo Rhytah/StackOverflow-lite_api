@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/Rhytah/stackoverflow-lite_api.svg?branch=tests)](https://travis-ci.org/Rhytah/stackoverflow-lite_api)
+
 # stackoverflow-lite_api
+
 StackOverflow-lite_Api is an interface that comprises of a set of endpoints that use data structures to store data in memory
 
 ## Getting Started
