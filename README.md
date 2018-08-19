@@ -2,15 +2,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/Rhytah/stackoverflow-lite_api/badge.svg?branch=master)](https://coveralls.io/github/Rhytah/stackoverflow-lite_api?branch=master)
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
 # stackoverflow-lite_api
 
 StackOverflow-lite_Api is an interface that comprises of a set of endpoints that use data structures to store data in memory
-
-## Getting Started
-clone the github repo to your computer:
-* $git clone https://github.com/Rhytah/stackoverflow-lite_api
-* Extract the zip file to another file
- 
 
 ### Tools
 
@@ -21,3 +16,39 @@ clone the github repo to your computer:
 * Pylint - a Python linting library 
 * Postman -Application to test and consume endpoints
 * PEP8 - Style guide
+
+## Getting Started
+clone the github repo to your computer:
+* $git clone https://github.com/Rhytah/stackoverflow-lite_api
+* Extract the zip file to another file
+**Create virtual environment and activate it**
+```
+$pip install virtualenv
+$ virtualenv venv
+$ venv\Scripts\activate
+``` 
+ **Install all the necessary tools by**
+ ```
+ $pip insatll -r requirements.txt
+ ```
+**Start app server in console/terminal/commandprompt**
+```
+$python app.py
+```
+## Versioning
+```
+This is version one"v1" of the API
+```
+## End Points
+|           End Point                            |            Functionality                   |
+|   ------------------------------------------   | -----------------------------------------  |
+|     GET  api/v1/questions                      |             Fetch all questions            |
+|     GET  api/v1/questions/<question_id>        |             Fetch a question               |
+|     POST api/v1/questions                      |             Add a question                 |
+|     POST api/v1/question/<question_id>/answers |             Delete user Question           |
+
+## Contributors
+- [Rhytah] https://github.com/Rhytah
+- [Nicholas Bob] https://github.com/Hitman23
+
+
