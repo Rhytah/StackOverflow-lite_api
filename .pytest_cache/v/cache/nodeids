@@ -1,5 +1,6 @@
 [
   "tests/test_requests.py::RequestTestmodels::test_add_a_question",
+  "tests/test_requests.py::RequestTestmodels::test_add_an_answer",
   "tests/test_requests.py::RequestTestmodels::test_get_a_question",
   "tests/test_requests.py::RequestTestmodels::test_get_all_questions"
 ]

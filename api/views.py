@@ -79,16 +79,15 @@ def add_an_answer(question_id):
 
         }
         answers.append(qna)
-        response =Response("",201, mimetype="application/json")
-        response.headers['Location']="answers/" + str(solution_data['question_id'])
-        return response
+        return jsonify ({"message": f'Great job! answer added to question {question_id}'})
+
     else:
         bad_object = {
             "error":"Invalid answer",
             "help_string":
                 "Answer format should be {'question_id':'1',""'title':'light a candle','description':'light a match and voila'}"
                 }
-        response = Response(json.dumps(bad_object), status=400, mimetype="application'json")
+        response = Response(json.dumps(bad_object), status=201, content_type="application'json")
         return response
     
     
