@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/Rhytah/stackoverflow-lite_api/badge.svg?branch=tests)](https://coveralls.io/github/Rhytah/stackoverflow-lite_api?branch=tests)
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
+
 # stackoverflow-lite_api
 
 StackOverflow-lite_Api is an interface that comprises of a set of endpoints that use data structures to store data in memory
@@ -46,6 +46,8 @@ This is version one"v1" of the API
 |     GET  api/v1/questions/<question_id>        |             Fetch a question               |
 |     POST api/v1/questions                      |             Add a question                 |
 |     POST api/v1/question/<question_id>/answers |             Delete user Question           |
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
 
 ## Contributors
 - [Rhytah] https://github.com/Rhytah
