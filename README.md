@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Rhytah/stackoverflow-lite_api.svg?branch=tests)](https://travis-ci.org/Rhytah/stackoverflow-lite_api)
 
-[![Coverage Status](https://coveralls.io/repos/github/Rhytah/stackoverflow-lite_api/badge.svg?branch=master)](https://coveralls.io/github/Rhytah/stackoverflow-lite_api?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Rhytah/stackoverflow-lite_api/badge.svg?branch=tests)](https://coveralls.io/github/Rhytah/stackoverflow-lite_api?branch=tests)
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
 # stackoverflow-lite_api
