@@ -21,6 +21,7 @@ StackOverflow-lite_Api is an interface that comprises of a set of endpoints that
 clone the github repo to your computer:
 * $git clone https://github.com/Rhytah/stackoverflow-lite_api
 * Extract the zip file to another file
+
 **Create virtual environment and activate it**
 ```
 $pip install virtualenv
@@ -45,12 +46,12 @@ This is version one"v1" of the API
 |     GET  api/v1/questions                      |             Fetch all questions            |
 |     GET  api/v1/questions/<question_id>        |             Fetch a question               |
 |     POST api/v1/questions                      |             Add a question                 |
-|     POST api/v1/question/<question_id>/answers |             Delete user Question           |
+|     POST api/v1/question/<question_id>/answers |             Add an answer                  |
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
 
-## Contributors
+## Author
 - [Rhytah] https://github.com/Rhytah
-- [Nicholas Bob] https://github.com/Hitman23
+
 
 
