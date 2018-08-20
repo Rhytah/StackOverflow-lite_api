@@ -46,7 +46,7 @@ This is version one"v1" of the API
 |     GET  api/v1/questions                      |             Fetch all questions            |
 |     GET  api/v1/questions/<question_id>        |             Fetch a question               |
 |     POST api/v1/questions                      |             Add a question                 |
-|     POST api/v1/question/<question_id>/answers |             Delete user Question           |
+|     POST api/v1/question/<question_id>/answers |             Add an answer                  |
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c6713f96622f32b859ba)
 
