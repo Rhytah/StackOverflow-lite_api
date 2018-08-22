@@ -36,6 +36,15 @@ $ venv\Scripts\activate
 ```
 $python app.py
 ```
+**Run tests on requests**
+```
+pytest tests/test_requests.py
+pytest tests/test_models.py
+```
+**Run tests while listing every run test**
+```
+pytest tests/test_requests.py -v
+```
 ## Versioning
 ```
 This is version one"v1" of the API
