@@ -1,19 +1,10 @@
 
 
-questions = [{
-    'question_id':1, 
-    'subject':'this is a subject', 
-    'asked_by':'Rhyath', 
-    'question_date': 'date(2018, 03,20)'}]
+questions = []
 
-answers = [{
-    'answer_id':1, 
-    'question_id':1, 
-    'subject':'it\'s not',
-    'answered_by':'Nicholas',
-    'answer_date':'date(2018,03,20)'}]
+answers = []
 
-qna = {}
+answer_to_question = {}
 
 class Question:
     def __init__(self,question_id,subject,asked_by,question_date):
