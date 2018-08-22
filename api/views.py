@@ -6,6 +6,10 @@ from .models import Answer, Question, answers, answer_to_question, questions
 
 app = Flask(__name__)
 
+@app.route('/api/v1/')
+def index():
+    return jsonify({'message':"Welcome to StackOverflow-Lite"})
+
 @app.route('/api/v1/questions', methods=['GET'])
 def get_all_questions():
     if len(questions) > 0:
@@ -89,6 +93,22 @@ def add_an_answer(question_id):
                 }
         response = Response(json.dumps(bad_object), status=201, content_type="application'json")
         return response
+
+@app.route('/api/v1/answers', methods=['GET'])
+def get_all_answers():
+    if len(answers) > 0:
+        return jsonify({'message':answers}) 
+    else:
+        return jsonify({
+            'status': 'Fail',
+            'message':'There are no answers'
+        })
+    
+
+
+
+
+
     
     
 

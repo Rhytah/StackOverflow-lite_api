@@ -5,6 +5,12 @@ import json
 from flask import jsonify
 
 class RequestTestmodels(BaseTestCase):
+    def test_index(self):
+        response=self.test_client.get(
+            '/api/v1/', content_type='application/json')
+        self.assertEqual(response.status_code,200)
+
+        self.assertIn("Welcome to StackOverflow-Lite", str(response.data))
     def test_get_all_questions(self):
         response=self.test_client.post(
         '/api/v1/questions', data= json.dumps(self.request_data),content_type='application/json')
@@ -20,6 +26,7 @@ class RequestTestmodels(BaseTestCase):
             '/api/v1/question/1', content_type='application/json'
         )
         self.assertEqual(response.status_code,404)
+        
 
 
     def test_add_a_question(self):
@@ -46,10 +53,27 @@ class RequestTestmodels(BaseTestCase):
         self.assertIn(
             'Great job! answer added to question 1', str(response.data)
         )
-    
+
+    def test_add_a_question_without_question_id(self):
+        response=self.test_client.post(
+            '/api/v1/answers', data=json.dumps(self.solution_data), content_type='application/json'
+        )
+        self.assertEqual(response.status_code,405)
+
     def test_get_a_question_with_invalid_id(self):
         response=self.test_client.post('/api/v1/questions')
         response=self.test_client.get('/api/v1/question/6', data=json.dumps(self.request_data), content_type='application/json')
         self.assertEqual(response.status_code,404)
-        
     
+    def test_modify_answer(self):
+        response=self.test_client.post('/api/v1/questions')
+        response=self.test_client.put('/api/v1/questions/1/answers',data=json.dumps(self.request_data), content_type='application/json')
+        self.assertEqual(response.status_code,405)
+
+    
+    def test_get_answers(self):
+            response=self.test_client.post(
+                '/api/v1/answers', data= json.dumps(self.request_data),content_type='application/json')
+            response=self.test_client.get(
+                '/api/v1/answers', data=json.dumps(self.request_data),content_type='application/json')
+            self.assertEqual(response.status_code,200)
