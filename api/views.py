@@ -89,7 +89,7 @@ def add_an_answer(question_id):
         bad_object = {
             "error":"Invalid answer",
             "help_string":
-                "Answer format should be {'question_id':'1',""'title':'light a candle','description':'light a match and voila'}"
+                "Answer format should be {'question_id':'1','title':'light a candle','description':'light a match and voila'}"
                 }
         response = Response(json.dumps(bad_object), status=201, content_type="application'json")
         return response

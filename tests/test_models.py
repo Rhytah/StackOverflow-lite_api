@@ -18,4 +18,12 @@ class Testmodels(BaseTestCase):
     def test_get_subject(question):
         subject= "fix a bug"
         return subject
+        print ('Subject has been displayed')
+
+    def test_get_description(answer):
+        description = "What you know describes answer to question"
+        return description
+        print ('description')
+    
+    
 
