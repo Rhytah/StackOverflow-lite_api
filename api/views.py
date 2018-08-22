@@ -2,7 +2,7 @@ from datetime import date
 
 from flask import Flask, Response, json, jsonify, request, Request
 
-from .models import Answer, Question, answers, qna, questions
+from .models import Answer, Question, answers, answer_to_question, questions
 
 app = Flask(__name__)
 
@@ -62,15 +62,15 @@ def add_an_answer(question_id):
     solution_data = request.get_json()
     answer_id = len(answers)+ 1
 
-    def valid_qna(questions):
+    def valid_answer_to_question(questions):
         if "question_id" in questions :
             return True
         else:
             return False
 
 
-    if (valid_qna(solution_data)):
-        qna ={
+    if (valid_answer_to_question(solution_data)):
+        answer_to_question ={
             'answer_id': answer_id,
             'question_id':solution_data.get('question_id'),
             'answered_by':solution_data.get('answered_by'),
@@ -78,7 +78,7 @@ def add_an_answer(question_id):
             'answer_date':solution_data.get('answer_date')
 
         }
-        answers.append(qna)
+        answers.append(answer_to_question)
         return jsonify ({"message": f'Great job! answer added to question {question_id}'})
 
     else:

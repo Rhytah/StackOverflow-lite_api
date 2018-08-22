@@ -1,5 +1,5 @@
 from api.views import app
-from api.models import Question,Answer,questions,answers,qna
+from api.models import Question,Answer,questions,answers,answer_to_question
 
 import unittest
 

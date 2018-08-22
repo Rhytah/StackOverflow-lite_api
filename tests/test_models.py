@@ -2,7 +2,7 @@ from tests import BaseTestCase
 
 import json
 
-from api.models import Question,Answer,questions,answers,qna
+from api.models import Question,Answer,questions,answers,answer_to_question
 
 class Testmodels(BaseTestCase):
 
