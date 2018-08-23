@@ -2,6 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/Rhytah/stackoverflow-lite_api/badge.svg?branch=tests)](https://coveralls.io/github/Rhytah/stackoverflow-lite_api?branch=tests)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/bd3703ac4e0a2f68396a/maintainability)](https://codeclimate.com/github/Rhytah/stackoverflow-lite_api/maintainability)
+
 
 # stackoverflow-lite_api
 
