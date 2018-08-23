@@ -50,6 +50,10 @@ pytest tests/test_requests.py -v
 ```
 This is version one"v1" of the API
 ```
+**API app is hosted at**
+```
+https://rhytahapi.herokuapp.com/
+```
 ## End Points
 |           End Point                            |            Functionality                   |
 |   ------------------------------------------   | -----------------------------------------  |
