@@ -2,7 +2,7 @@ from datetime import date
 
 from flask import Flask, Response, json, jsonify, request, Request
 
-from .models import Answer, Question, answers, answer_to_question,questions,question
+from .models import Answer, Question, answers, answer_to_question,questions
 
 app = Flask(__name__)
 
@@ -64,7 +64,7 @@ def add_a_question():
     new_question = {'question_id':question_id, 'subject':subject, 'asked_by':asked_by,'question_date':question_date}
     questions.append(new_question)
 
-return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
+    return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
     
     
 
@@ -92,7 +92,7 @@ def add_an_answer(question_id):
 
         }
         answers.append(answer_to_question)
-    return jsonify ({"message": f'Great job! answer added to question {question_id}'})
+    return jsonify ({"message": f'Great job! answer added to question'})
 
     
 
