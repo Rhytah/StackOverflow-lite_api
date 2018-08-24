@@ -28,22 +28,22 @@ def get_all_questions():
 @app.route('/api/v1/questions/<question_id>', methods =['GET'])
 def get_a_question(question_id):
 
-    if len(question) < 1:
+    if len(questions) < 1:
         return jsonify({
             "status":"Fail",
             "message":"Question doesnot exist"
         }),404
 
     for specific_question in questions:
-        if question_id.questions==question_id:
+        if specific_question['question_id']==question_id:
             return jsonify({"Question":specific_question}),200
 
     return jsonify({"Error":"Question not found, check to see that you input the right id"}),404
 @app.route('/api/v1/questions', methods=['POST'])
 def add_a_question():
     request_data = request.get_json()
-
-    question_id = uuid.uuid4()
+    u_id=uuid.uuid4()
+    question_id = u_id
     subject = 'subject'
     asked_by = 'asked_by'
     question_date = 'question_date'
