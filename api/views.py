@@ -2,41 +2,47 @@ from datetime import date
 
 from flask import Flask, Response, json, jsonify, request, Request
 
-from .models import Answer, Question, answers, answer_to_question, questions
+from .models import Answer, Question, answers, answer_to_question,questions,question
 
 app = Flask(__name__)
 
-@app.route('/api/v1/')
-def index():
-    return jsonify({'message':"Welcome to StackOverflow-Lite"})
+
 
 @app.route('/api/v1/questions', methods=['GET'])
 def get_all_questions():
-    if len(questions) > 0:
-        return jsonify({'message':questions}) ###this returns questions list
-    else:
+
+    if len(questions) < 1:
         return jsonify({
-            'status': 'Fail',
-            'message':'There are no questions found on the forum'
+            "status":"Fail",
+            "Sorry":"There are no questions"
         })
+    if len(questions) >= 1:
+        return jsonify({
+            "message":"Successfully fetched questions",
+            "questions":questions
+            
+        })
+    
+
+    
     
 @app.route('/api/v1/questions/<question_id>', methods =['GET'])
 def get_a_question(question_id):
-    
+
+    if len(question) < 1:
+        return jsonify({
+            "status":"Fail",
+            "message":"Question doesnot exist"
+        }),404
+
     for specific_question in questions:
-        if specific_question.get('question_id') == int(question_id):
-        
-            return jsonify({'message': specific_question})
+        if question_id.questions==question_id:
+            return jsonify({"Question":specific_question}),200
 
-    return jsonify({
-        'status': 'Fail',
-        'message':'Question doesnot exist'
-    })
-
+    return jsonify({"Error":"Question not found, check to see that you input the right id"}),404
 @app.route('/api/v1/questions', methods=['POST'])
 def add_a_question():
-
-    request_data = request.get_json(force=True)
+request_data = request.get_json(force=True)
 
     question_id = len (questions) +1
     subject = request_data.get('subject')
@@ -55,44 +61,40 @@ def add_a_question():
 
     
 
-    new_question = [question_id,subject,asked_by,question_date]
+    new_question = {question_id,subject,asked_by,question_date]
     questions.append(new_question)
 
-    return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
+return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
+    
+    
 
 @app.route('/api/v1/questions/<question_id>/answers', methods =['POST'])
 def add_an_answer(question_id):
     
-    solution_data = request.get_json()
+    request_data = request.get_json()
     answer_id = len(answers)+ 1
+    question_id =len
 
     def valid_answer_to_question(questions):
-        if "question_id" in questions :
+        if question_id in questions :
             return True
         else:
             return False
 
 
-    if (valid_answer_to_question(solution_data)):
+    if (valid_answer_to_question(request_data)):
         answer_to_question ={
             'answer_id': answer_id,
-            'question_id':solution_data.get('question_id'),
-            'answered_by':solution_data.get('answered_by'),
-            'description':solution_data.get('description'),
-            'answer_date':solution_data.get('answer_date')
+            'question_id':request_data.get('question_id'),
+            'answered_by':request_data.get('answered_by'),
+            'description':request_data.get('description'),
+            'answer_date':request_data.get('answer_date')
 
         }
         answers.append(answer_to_question)
-        return jsonify ({"message": f'Great job! answer added to question {question_id}'})
+    return jsonify ({"message": f'Great job! answer added to question {question_id}'})
 
-    else:
-        bad_object = {
-            "error":"Invalid answer",
-            "help_string":
-                "Answer format should be {'question_id':'1','title':'light a candle','description':'light a match and voila'}"
-                }
-        response = Response(json.dumps(bad_object), status=201, content_type="application'json")
-        return response
+    
 
 @app.route('/api/v1/answers', methods=['GET'])
 def get_all_answers():
@@ -109,7 +111,6 @@ def get_all_answers():
 
 
 
-    
     
 
 
