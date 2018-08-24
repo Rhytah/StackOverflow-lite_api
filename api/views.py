@@ -42,7 +42,7 @@ def get_a_question(question_id):
     return jsonify({"Error":"Question not found, check to see that you input the right id"}),404
 @app.route('/api/v1/questions', methods=['POST'])
 def add_a_question():
-request_data = request.get_json(force=True)
+    request_data = request.get_json()
 
     question_id = len (questions) +1
     subject = request_data.get('subject')
@@ -61,7 +61,7 @@ request_data = request.get_json(force=True)
 
     
 
-    new_question = {question_id,subject,asked_by,question_date]
+    new_question = {'question_id':question_id, 'subject':subject, 'asked_by':asked_by,'question_date':question_date}
     questions.append(new_question)
 
 return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
