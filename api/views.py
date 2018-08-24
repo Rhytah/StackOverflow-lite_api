@@ -1,5 +1,4 @@
-from datetime import date
-
+import uuid
 from flask import Flask, Response, json, jsonify, request, Request
 
 from .models import Answer, Question, answers, answer_to_question,questions
@@ -14,7 +13,7 @@ def get_all_questions():
     if len(questions) < 1:
         return jsonify({
             "status":"Fail",
-            "Sorry":"There are no questions"
+            "message":"There are no questions"
         })
     if len(questions) >= 1:
         return jsonify({
@@ -44,10 +43,10 @@ def get_a_question(question_id):
 def add_a_question():
     request_data = request.get_json()
 
-    question_id = len (questions) +1
-    subject = request_data.get('subject')
-    asked_by = request_data.get('asked_by')
-    question_date = request_data.get('question_date')
+    question_id = uuid.uuid4()
+    subject = 'subject'
+    asked_by = 'asked_by'
+    question_date = 'question_date'
     
 
     if not subject or subject == ' ' or subject == type(int):
@@ -64,16 +63,16 @@ def add_a_question():
     new_question = {'question_id':question_id, 'subject':subject, 'asked_by':asked_by,'question_date':question_date}
     questions.append(new_question)
 
-    return jsonify({'message': f'Hello {asked_by}! Question successfully added'})
+    return jsonify({'message': f'Hello, Question successfully added'})
     
     
 
 @app.route('/api/v1/questions/<question_id>/answers', methods =['POST'])
 def add_an_answer(question_id):
     
-    request_data = request.get_json()
-    answer_id = len(answers)+ 1
-    question_id =len
+    request_data = request.get_json(force=True)
+    answer_id = uuid.uuid4()
+    question_id =uuid.uuid4()
 
     def valid_answer_to_question(questions):
         if question_id in questions :

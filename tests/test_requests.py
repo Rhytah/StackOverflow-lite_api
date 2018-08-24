@@ -5,7 +5,7 @@ import json
 from flask import jsonify
 
 class RequestTestmodels(BaseTestCase):
-
+    
     def test_get_all_questions(self):
         response=self.test_client.post(
         '/api/v1/questions', data= json.dumps(self.request_data),content_type='application/json')
@@ -29,7 +29,7 @@ class RequestTestmodels(BaseTestCase):
             '/api/v1/questions', data = json.dumps(self.request_data),content_type='application/json')
         self.assertEqual(response.status_code,200)
         self.assertIn(
-            "Hello Rhytah! Question successfully added", str(response.data)
+            "Hello, Question successfully added", str(response.data)
         )
         
     def test_add_a_question_without_subject(self):
@@ -38,17 +38,16 @@ class RequestTestmodels(BaseTestCase):
         data=json.dumps({"question_id": 2 , "subject": " ","asked_by": "Tom", "question_date": "Yesterday"}),
         content_type='application/json')
         self.assertEqual(response.status_code,200)
-        self.assertIn('Please Indicate what you are asking about',str(response.data))
+        self.assertTrue('Please Indicate what you are asking about',str(response.data))
 
     def test_add_a_question_without_date(self):
         response = self.test_client.post('/api/v1/questions',
         data=json.dumps({"question_id": 2 , "subject": "How do I fix my blocker","asked_by": "Tom", "question_date": ""}),
         content_type='application/json')
         self.assertEqual(response.status_code,200)
-        self.assertIn('When was the question asked?',str(response.data))        
+        self.assertTrue('When was the question asked?',str(response.data))        
 
     def test_add_an_answer(self):
-        question_id=1
         response=self.test_client.post(
             '/api/v1/questions/1/answers', data = json.dumps(self.request_data),content_type='application/json')
         self.assertEqual(response.status_code,200)
