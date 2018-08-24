@@ -52,7 +52,7 @@ This is version one"v1" of the API
 ```
 **API app is hosted at**
 ```
-https://rhytahapi.herokuapp.com//api/v1/
+https://rhytahapi.herokuapp.com/api/v1/questions
 ```
 ## End Points
 |           End Point                            |            Functionality                   |
